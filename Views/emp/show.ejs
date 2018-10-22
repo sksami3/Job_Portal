@@ -15,21 +15,19 @@
 	<table border="1" align="center">
 		<tr>
 			<th>Id</th>
-			<th>Employer Name</th>
 			<th>Company Name</th>
-			<th>Contact Number</th>
-			<th>User Name</th>
-			<th>Password</th>
+			<th>Job Title</th>
+			<th>Job Location</th>
+			<th>Salary</th>
 		</tr>
 		<% for(var i = 0; i < list.length; i++){ %>
 
 		<tr>
 			<td><%= list[i].id %></td>
-			<td><%= list[i].emp_name %></td>
-			<td><%= list[i].comp_name %></td>
-			<td><%= list[i].contact_no %></td>
-			<td><%= list[i].user_name %></td>
-			<td><%= list[i].password %></td>
+			<td><%= list[i].company_name %></td>
+			<td><%= list[i].job_title %></td>
+			<td><%= list[i].job_location %></td>
+			<td><%= list[i].salary %></td>
 			<td><a href="/admin/edit/<%= list[i].id %>">Edit</a> | <a href="/admin/delete/<%= list[i].id %>"> Delete</a> </td>
 		</tr>
 		

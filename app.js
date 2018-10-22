@@ -5,6 +5,7 @@ var bodyParser = require('body-parser');
 var expressSession = require('express-session');
 var adminController = require('./controllers/admin/admin-controller');
 var homeController = require('./controllers/home/home-controller');
+var empController = require('./controllers/employer/emp-controller');
 
 //Config
 app.set('view engine','ejs');
@@ -20,6 +21,7 @@ app.use('/',homeController);
 app.use('/login',homeController);
 app.use('/admin',adminController);
 app.use('/logout',homeController);
+app.use('/employer',empController);
 
 
 //Server Start

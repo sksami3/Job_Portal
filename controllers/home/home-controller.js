@@ -6,8 +6,9 @@ var homeModel=require.main.require('./models/home/home-model');
 
 router.get('/logout',function(req,res){
 
-	req.session.una=null;
+	if(req.session.una==null || req.session.une==null){
 	res.redirect('/login');
+	}
 
 });
 
@@ -49,7 +50,7 @@ router.post('/',function(req,res){
 			if(result)
 			{
 				req.session.une=req.body.user_name;
-				res.redirect('/kkk');			
+				res.redirect('/employer');			
 			}
 			else
 			{

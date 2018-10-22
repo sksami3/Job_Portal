@@ -3,6 +3,7 @@ var router=express.Router();
 var adminModel=require.main.require('./models/admin/admin-model');
 
 
+
 router.get('*',function(req,res,next){
 	if(req.session.una==null)
 	{
@@ -36,11 +37,11 @@ router.post('/',function(req,res){
 
 		if(result)
 		{
-			console.log("inserted");			
+			res.redirect("/admin/show");			
 		}
 		else
 		{
-			console.log("Can't insert");
+			res.sent("can't insert");
 		}
 
 	});
