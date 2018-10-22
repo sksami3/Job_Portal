@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home</title>
+</head>
+<body>
+	<h1 align="center">List of Employers!</h1>
+
+	<a href="/home">Back</a>
+	
+	<table border="1" align="center">
+		<tr>
+			<th>Id</th>
+			<th>Employer Name</th>
+			<th>Company Name</th>
+			<th>Contact Number</th>
+			<th>User Name</th>
+			<th>Password</th>
+		</tr>
+		<% for(var i = 0; i < list.length; i++){ %>
+
+		<tr>
+			<td><%= list[i].id %></td>
+			<td><%= list[i].emp_name %></td>
+			<td><%= list[i].comp_name %></td>
+			<td><%= list[i].contact_no %></td>
+			<td><%= list[i].user_name %></td>
+			<td><%= list[i].password %></td>
+			<td><a href="/home/edit/<%= list[i].id %>">Edit</a> | <a href="#"> Delete</a> </td>
+		</tr>
+		
+		<% } %>
+
+	</table>
+</body>
+</html>
