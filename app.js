@@ -15,11 +15,11 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(expressSession({secret:"My secret is secret",saveUninitialized:true,resave:false}));
 
 
-
 //Routes
 app.use('/',homeController);
 app.use('/login',homeController);
 app.use('/admin',adminController);
+app.use('/logout',homeController);
 
 
 //Server Start

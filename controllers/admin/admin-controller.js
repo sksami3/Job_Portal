@@ -40,7 +40,7 @@ router.post('/',function(req,res){
 		}
 		else
 		{
-			console.log("mara khaw");
+			console.log("Can't insert");
 		}
 
 	});
@@ -58,7 +58,7 @@ router.get('/show',function(req,res){
 		}
 		else
 		{
-			res.redirect('/');
+			res.redirect('/admin');
 		}
 
 	});
