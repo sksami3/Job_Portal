@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home</title>
+</head>
+<body>
+	<h1>Welcome Home!</h1>
+
+<form method="post">
+
+	<a href="/home/userlist">Back</a>
+	<table border="0">
+		<tr>
+			<td>Id</td>
+			<td><%= user.id %></td>
+			<input type="hidden" name="id" value="<%= user.id %>">
+		</tr>
+		<tr>
+			<td>Employer Name</td>
+			<td><input type="text" name="en" value="<%= user.emp_name %>"></td>
+		</tr>
+		<tr>
+			<td>Company Name</td>
+			<td><input type="text" name="cn" value="<%= user.comp_name %>"></td>
+		</tr>
+		<tr>
+			<td>Contact No.</td>
+			<td><input type="text" name="con" value="<%= user.contact_no %>"></td>
+		</tr>
+		<tr>
+			<td>User Name</td>
+			<td><input type="text" name="un" value="<%= user.user_name %>"></td>
+		</tr>
+		<tr>
+			<td>Password</td>
+			<td><input type="password" name="password" value="<%= user.password %>"></td>
+		</tr>
+		<tr>
+			<td><input type="submit" name="submit" value="Save" /></td>
+			<td></td>
+		</tr>
+	</table>
+</form>
+</body>
+</html>

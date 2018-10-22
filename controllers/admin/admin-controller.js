@@ -55,23 +55,41 @@ router.get('/show',function(req,res){
 });
 
 
-// router.post('/show',function(req,res){
-
-// 	adminModel.getAll(function(result){
-
-// 		if(result.length>0){
-// 			//res.render('admin/show',{list: result});
-// 			console.log(result[0]);
-// 		}
-// 		else
-// 		{
-// 			res.redirect('/');
-// 		}
-
-// 	});
-// });
 
 
+router.get('/edit/:id', function(req, res){
+	
+		var userId = req.params.id;
+
+		adminModel.getById(userId, function(result){
+			res.render('admin/edit', {user: result});
+		});
+
+});
+router.post('/edit/:id', function(req, res){
+	
+	var user={
+		id:req.body.id,
+		name:req.body.en,
+		cn:req.body.cn,
+		con:req.body.con,
+		un:req.body.un,
+		password:req.body.password
+	};
+
+	adminModel.update(user,function(status){
+		if(status)
+		{
+			res.redirect('/admin/show');
+
+		}
+		else
+		{
+			res.send('Error in updating...');
+		}
+	});
+
+});
 	/*if(req.body.username==req.body.password)
 	{
 		req.session.un=req.body.username;
@@ -84,6 +102,37 @@ router.get('/show',function(req,res){
 
 
 // });
+
+router.get('/delete/:id',function(req,res){
+	
+	res.render('admin/delete');
+	
+});
+
+
+router.post('/delete/:id',function(req,res){
+	
+	if(req.body.yes)
+	{
+		adminModel.delete(req.params.id,function(status){
+			if(status)
+			{
+				res.redirect('/admin/show');
+			}
+			else
+			{
+				res.send('Error in deleting...');
+			}
+
+		})
+	}
+	else
+	{
+		res.redirect('/admin/show');
+	}
+	
+});
+
 
 
 
