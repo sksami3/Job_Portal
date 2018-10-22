@@ -3,6 +3,17 @@ var router=express.Router();
 var adminModel=require.main.require('./models/admin/admin-model');
 
 
+router.get('*',function(req,res,next){
+	if(req.session.una==null)
+	{
+		res.redirect('/login');
+	}
+	else
+	{
+		next();
+	}
+});
+
 router.get('/',function(req,res){
 
 	//res.send("<script>alert('hello')</script>");
@@ -111,10 +122,10 @@ router.get('/delete/:id',function(req,res){
 
 
 router.post('/delete/:id',function(req,res){
-	
+	var id=req.params.id;
 	if(req.body.yes)
 	{
-		adminModel.delete(req.params.id,function(status){
+		adminModel.delete(id,function(status){
 			if(status)
 			{
 				res.redirect('/admin/show');
